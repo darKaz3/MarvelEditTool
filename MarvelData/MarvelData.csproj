@@ -56,6 +56,7 @@
     <Compile Include="AnmChrCmd.cs" />
     <Compile Include="AnmChrEntry.cs" />
     <Compile Include="AnmChrSubEntry.cs" />
+    <Compile Include="ArcToolHelper.cs" />
     <Compile Include="CmdComboEntry.cs" />
     <Compile Include="CollisionEntry.cs" />
     <Compile Include="CmdSpAtkEntry.cs" />

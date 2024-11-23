@@ -39,7 +39,7 @@ namespace StatusEditor
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.animBox = new System.Windows.Forms.ListBox();
             this.structView = new System.Windows.Forms.DataGridView();
-            this.subChunkColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubChunkColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.varColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hexColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,6 +79,10 @@ namespace StatusEditor
             this.sHTShotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.unpackFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.repackARCFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.correctIndexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -142,8 +146,8 @@ namespace StatusEditor
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(671, 454);
-            this.splitContainer1.SplitterDistance = 43;
+            this.splitContainer1.Size = new System.Drawing.Size(629, 602);
+            this.splitContainer1.SplitterDistance = 39;
             this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -171,8 +175,8 @@ namespace StatusEditor
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer2.Size = new System.Drawing.Size(671, 408);
-            this.splitContainer2.SplitterDistance = 416;
+            this.splitContainer2.Size = new System.Drawing.Size(629, 560);
+            this.splitContainer2.SplitterDistance = 389;
             this.splitContainer2.SplitterWidth = 3;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -192,8 +196,8 @@ namespace StatusEditor
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.structView);
-            this.splitContainer4.Size = new System.Drawing.Size(416, 408);
-            this.splitContainer4.SplitterDistance = 122;
+            this.splitContainer4.Size = new System.Drawing.Size(389, 560);
+            this.splitContainer4.SplitterDistance = 167;
             this.splitContainer4.SplitterWidth = 3;
             this.splitContainer4.TabIndex = 1;
             // 
@@ -208,7 +212,7 @@ namespace StatusEditor
             this.animBox.Margin = new System.Windows.Forms.Padding(2);
             this.animBox.Name = "animBox";
             this.animBox.ScrollAlwaysVisible = true;
-            this.animBox.Size = new System.Drawing.Size(416, 122);
+            this.animBox.Size = new System.Drawing.Size(389, 167);
             this.animBox.TabIndex = 0;
             this.animBox.SelectedIndexChanged += new System.EventHandler(this.animBox_SelectedIndexChanged);
             // 
@@ -217,15 +221,17 @@ namespace StatusEditor
             this.structView.AllowUserToAddRows = false;
             this.structView.AllowUserToDeleteRows = false;
             this.structView.AllowUserToResizeRows = false;
+            this.structView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.structView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.structView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.structView.ColumnHeadersVisible = false;
             this.structView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.subChunkColumn,
+            this.SubChunkColumn,
             this.varColumn,
             this.valueColumn,
             this.hexColumn});
-            this.structView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.structView.Enabled = false;
             this.structView.Location = new System.Drawing.Point(0, 0);
             this.structView.Margin = new System.Windows.Forms.Padding(2);
@@ -233,17 +239,17 @@ namespace StatusEditor
             this.structView.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.structView.RowHeadersVisible = false;
             this.structView.RowTemplate.Height = 24;
-            this.structView.Size = new System.Drawing.Size(416, 283);
+            this.structView.Size = new System.Drawing.Size(389, 284);
             this.structView.TabIndex = 1;
             this.structView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.structView_SelectedIndexChanged);
             // 
-            // subChunkColumn
+            // SubChunkColumn
             // 
-            this.subChunkColumn.FillWeight = 4F;
-            this.subChunkColumn.HeaderText = "subchunk";
-            this.subChunkColumn.Name = "SubChunkColumn";
-            this.subChunkColumn.ReadOnly = true;
-            this.subChunkColumn.Visible = false;
+            this.SubChunkColumn.FillWeight = 4F;
+            this.SubChunkColumn.HeaderText = "subchunk";
+            this.SubChunkColumn.Name = "SubChunkColumn";
+            this.SubChunkColumn.ReadOnly = true;
+            this.SubChunkColumn.Visible = false;
             // 
             // varColumn
             // 
@@ -281,8 +287,8 @@ namespace StatusEditor
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.dataTextBox);
-            this.splitContainer3.Size = new System.Drawing.Size(252, 408);
-            this.splitContainer3.SplitterDistance = 243;
+            this.splitContainer3.Size = new System.Drawing.Size(237, 560);
+            this.splitContainer3.SplitterDistance = 333;
             this.splitContainer3.SplitterWidth = 2;
             this.splitContainer3.TabIndex = 5;
             // 
@@ -319,7 +325,7 @@ namespace StatusEditor
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(252, 243);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(237, 333);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // shotNameTextBox
@@ -332,7 +338,7 @@ namespace StatusEditor
             this.shotNameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.shotNameTextBox.MaxLength = 68;
             this.shotNameTextBox.Name = "shotNameTextBox";
-            this.shotNameTextBox.Size = new System.Drawing.Size(248, 20);
+            this.shotNameTextBox.Size = new System.Drawing.Size(233, 20);
             this.shotNameTextBox.TabIndex = 0;
             this.shotNameTextBox.Visible = false;
             this.shotNameTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -348,7 +354,7 @@ namespace StatusEditor
             this.entryImportButton.Location = new System.Drawing.Point(2, 26);
             this.entryImportButton.Margin = new System.Windows.Forms.Padding(2);
             this.entryImportButton.Name = "entryImportButton";
-            this.entryImportButton.Size = new System.Drawing.Size(122, 23);
+            this.entryImportButton.Size = new System.Drawing.Size(114, 23);
             this.entryImportButton.TabIndex = 1;
             this.entryImportButton.Text = "&Import";
             this.entryImportButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -365,7 +371,7 @@ namespace StatusEditor
             this.entryUpButton.Location = new System.Drawing.Point(2, 82);
             this.entryUpButton.Margin = new System.Windows.Forms.Padding(2);
             this.entryUpButton.Name = "entryUpButton";
-            this.entryUpButton.Size = new System.Drawing.Size(122, 23);
+            this.entryUpButton.Size = new System.Drawing.Size(114, 23);
             this.entryUpButton.TabIndex = 5;
             this.entryUpButton.Text = "Move Up";
             this.entryUpButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -381,7 +387,7 @@ namespace StatusEditor
             this.subChunkAddButton.Location = new System.Drawing.Point(2, 109);
             this.subChunkAddButton.Margin = new System.Windows.Forms.Padding(2);
             this.subChunkAddButton.Name = "subChunkAddButton";
-            this.subChunkAddButton.Size = new System.Drawing.Size(122, 23);
+            this.subChunkAddButton.Size = new System.Drawing.Size(114, 23);
             this.subChunkAddButton.TabIndex = 7;
             this.subChunkAddButton.Text = "Add SubChunk";
             this.subChunkAddButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -395,10 +401,10 @@ namespace StatusEditor
             this.subChunkDeleteButton.AutoSize = true;
             this.subChunkDeleteButton.ContextMenuStrip = this.subChunkDeleteMenuStrip;
             this.subChunkDeleteButton.Enabled = false;
-            this.subChunkDeleteButton.Location = new System.Drawing.Point(128, 109);
+            this.subChunkDeleteButton.Location = new System.Drawing.Point(120, 109);
             this.subChunkDeleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.subChunkDeleteButton.Name = "subChunkDeleteButton";
-            this.subChunkDeleteButton.Size = new System.Drawing.Size(122, 23);
+            this.subChunkDeleteButton.Size = new System.Drawing.Size(115, 23);
             this.subChunkDeleteButton.TabIndex = 9;
             this.subChunkDeleteButton.Text = "Delete SubChunk";
             this.subChunkDeleteButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -417,10 +423,10 @@ namespace StatusEditor
             this.entryExportButton.AutoSize = true;
             this.entryExportButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.entryExportButton.Enabled = false;
-            this.entryExportButton.Location = new System.Drawing.Point(128, 26);
+            this.entryExportButton.Location = new System.Drawing.Point(120, 26);
             this.entryExportButton.Margin = new System.Windows.Forms.Padding(2);
             this.entryExportButton.Name = "entryExportButton";
-            this.entryExportButton.Size = new System.Drawing.Size(122, 23);
+            this.entryExportButton.Size = new System.Drawing.Size(115, 23);
             this.entryExportButton.TabIndex = 2;
             this.entryExportButton.Text = "&Export";
             this.entryExportButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -434,10 +440,10 @@ namespace StatusEditor
             | System.Windows.Forms.AnchorStyles.Right)));
             this.entryDownButton.AutoSize = true;
             this.entryDownButton.Enabled = false;
-            this.entryDownButton.Location = new System.Drawing.Point(128, 82);
+            this.entryDownButton.Location = new System.Drawing.Point(120, 82);
             this.entryDownButton.Margin = new System.Windows.Forms.Padding(2);
             this.entryDownButton.Name = "entryDownButton";
-            this.entryDownButton.Size = new System.Drawing.Size(122, 23);
+            this.entryDownButton.Size = new System.Drawing.Size(115, 23);
             this.entryDownButton.TabIndex = 6;
             this.entryDownButton.Text = "Move Down";
             this.entryDownButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -451,9 +457,9 @@ namespace StatusEditor
             this.entryDeleteButton.AutoSize = true;
             this.entryDeleteButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.entryDeleteButton.Enabled = false;
-            this.entryDeleteButton.Location = new System.Drawing.Point(129, 54);
+            this.entryDeleteButton.Location = new System.Drawing.Point(121, 54);
             this.entryDeleteButton.Name = "entryDeleteButton";
-            this.entryDeleteButton.Size = new System.Drawing.Size(120, 23);
+            this.entryDeleteButton.Size = new System.Drawing.Size(113, 23);
             this.entryDeleteButton.TabIndex = 11;
             this.entryDeleteButton.Text = "Delete";
             this.entryDeleteButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -469,7 +475,7 @@ namespace StatusEditor
             this.entryInsertButton.Enabled = false;
             this.entryInsertButton.Location = new System.Drawing.Point(3, 54);
             this.entryInsertButton.Name = "entryInsertButton";
-            this.entryInsertButton.Size = new System.Drawing.Size(120, 23);
+            this.entryInsertButton.Size = new System.Drawing.Size(112, 23);
             this.entryInsertButton.TabIndex = 12;
             this.entryInsertButton.Text = "Insert";
             this.entryInsertButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -507,7 +513,7 @@ namespace StatusEditor
             this.dataTextBox.Name = "dataTextBox";
             this.dataTextBox.ReadOnly = true;
             this.dataTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataTextBox.Size = new System.Drawing.Size(252, 163);
+            this.dataTextBox.Size = new System.Drawing.Size(237, 225);
             this.dataTextBox.TabIndex = 9;
             this.dataTextBox.WordWrap = false;
             // 
@@ -518,13 +524,13 @@ namespace StatusEditor
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.tagsDataGridView);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(671, 102);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(629, 102);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.toolStripContainer1.LeftToolStripPanelVisible = false;
-            this.toolStripContainer1.Location = new System.Drawing.Point(0, 454);
+            this.toolStripContainer1.Location = new System.Drawing.Point(0, 500);
             this.toolStripContainer1.Name = "toolStripContainer1";
             this.toolStripContainer1.RightToolStripPanelVisible = false;
-            this.toolStripContainer1.Size = new System.Drawing.Size(671, 102);
+            this.toolStripContainer1.Size = new System.Drawing.Size(629, 102);
             this.toolStripContainer1.TabIndex = 2;
             this.toolStripContainer1.Text = "toolStripContainer1";
             this.toolStripContainer1.TopToolStripPanelVisible = false;
@@ -547,7 +553,7 @@ namespace StatusEditor
             this.tagsDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tagsDataGridView.RowHeadersVisible = false;
             this.tagsDataGridView.RowTemplate.Height = 24;
-            this.tagsDataGridView.Size = new System.Drawing.Size(671, 102);
+            this.tagsDataGridView.Size = new System.Drawing.Size(629, 102);
             this.tagsDataGridView.TabIndex = 8;
             // 
             // toolStripMenuItem1
@@ -586,7 +592,7 @@ namespace StatusEditor
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 0);
-            this.menuStrip1.Size = new System.Drawing.Size(671, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(629, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -597,6 +603,10 @@ namespace StatusEditor
             this.openFileTypeToolStripMenuItem,
             this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.unpackFileToolStripMenuItem,
+            this.repackARCFileToolStripMenuItem,
+            this.toolStripSeparator3,
             this.closeToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 22);
@@ -605,7 +615,7 @@ namespace StatusEditor
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.openToolStripMenuItem.Text = "Open File";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenButton_Click);
             // 
@@ -620,7 +630,7 @@ namespace StatusEditor
             this.cSPCommandSpecialAttackToolStripMenuItem,
             this.sHTShotToolStripMenuItem});
             this.openFileTypeToolStripMenuItem.Name = "openFileTypeToolStripMenuItem";
-            this.openFileTypeToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.openFileTypeToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.openFileTypeToolStripMenuItem.Text = "Open File Type";
             // 
             // openATIToolStripMenuItem
@@ -676,7 +686,7 @@ namespace StatusEditor
             // 
             this.saveToolStripMenuItem.Enabled = false;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveButton_Click);
             // 
@@ -684,14 +694,38 @@ namespace StatusEditor
             // 
             this.saveAsToolStripMenuItem.Enabled = false;
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.saveAsToolStripMenuItem.Text = "Save As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveButton_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(158, 6);
+            // 
+            // unpackFileToolStripMenuItem
+            // 
+            this.unpackFileToolStripMenuItem.Name = "unpackFileToolStripMenuItem";
+            this.unpackFileToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.unpackFileToolStripMenuItem.Text = "Unpack ARC File";
+            this.unpackFileToolStripMenuItem.Click += new System.EventHandler(this.unpackARCFileToolStripMenuItem_Click);
+            // 
+            // repackARCFileToolStripMenuItem
+            // 
+            this.repackARCFileToolStripMenuItem.Name = "repackARCFileToolStripMenuItem";
+            this.repackARCFileToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.repackARCFileToolStripMenuItem.Text = "Repack ARC File";
+            this.repackARCFileToolStripMenuItem.Click += new System.EventHandler(this.repackARCFileToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(158, 6);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.CloseButton_Click);
             // 
@@ -784,10 +818,10 @@ namespace StatusEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(671, 556);
+            this.ClientSize = new System.Drawing.Size(629, 602);
+            this.Controls.Add(this.toolStripContainer1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.splitContainer1);
-            this.Controls.Add(this.toolStripContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -887,6 +921,11 @@ namespace StatusEditor
         private ToolStripMenuItem entryDuplicateStripMenuItem;
         private ToolStripMenuItem entryExtendStripMenuItem;
         private ToolStripMenuItem correctIndexToolStripMenuItem;
+        private DataGridViewTextBoxColumn SubChunkColumn;
+        private ToolStripMenuItem unpackFileToolStripMenuItem;
+        private ToolStripMenuItem repackARCFileToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripSeparator toolStripSeparator3;
     }
 }
 

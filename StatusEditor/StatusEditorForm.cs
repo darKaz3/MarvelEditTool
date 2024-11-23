@@ -9,7 +9,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
+
 
 namespace StatusEditor
 {
@@ -31,9 +31,7 @@ namespace StatusEditor
         private bool isSameFile;
         private System.Windows.Forms.DataGridViewEditingControlShowingEventArgs dgvE;
         private System.Windows.Forms.DataGridView dgvSender;
-        private bool isShtFile;
-
-        public bool IsShtFile
+        private bool IsShtFile
         { get 
             {
                 return tablefile.fileExtension.Contains("SHT");
@@ -124,7 +122,7 @@ namespace StatusEditor
             }
 
             structViewEntryType = typeof(StructEntry<>).MakeGenericType(structtype);
-
+            dgvSender = structView;
             structViewType = structtype;
         }
 
@@ -276,20 +274,12 @@ namespace StatusEditor
                 }
                 return true;
             }
-            else if (keyData == (Keys.Decimal)) //110
+            else if (keyData == Keys.Decimal || keyData == Keys.Oemcomma) // 110
             {
-                if (dgvSender != null)
+                if (structView != null)
                 {
                     isCommaInput = true;
-                    StructView_EditingControlShowing(dgvSender, dgvE);
-                }
-            }
-            else if (keyData == (Keys.Oemcomma)) //110
-            {
-                if (dgvSender != null)
-                {
-                    isCommaInput = true;
-                    StructView_EditingControlShowing(dgvSender, dgvE);
+                    StructView_EditingControlShowing();
                 }
             }
             return base.ProcessCmdKey(ref msg, keyData);
@@ -1121,47 +1111,49 @@ namespace StatusEditor
             return Enum.GetNames(typeof(AtkFlagsC)).ToList();
         }
 
-        //TODO: check if this code works / is relevant at all
-        private void StructView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        // FIXME: this is a method meant to auto complete AtkFlags entries
+        private void StructView_EditingControlShowing()
         {
-            dgvSender = (DataGridView)sender;
-            dgvE = e;
+            return;
+            // Access the current editing control
+            var txtBox = structView.EditingControl as TextBox;
+            if (txtBox == null) return;
 
-            int column = this.structView.CurrentCell.ColumnIndex;
-            string columnName = this.structView.SelectedCells[0].ValueType.Name;
-            String[] enumList = GetEnumListB();
+            int columnIndex = structView.CurrentCell.ColumnIndex;
+            string valueTypeName = structView.SelectedCells[0].ValueType.Name;
+            string[] enumList = GetEnumListB();
 
-            var txtBox = e.Control as TextBox;
-            String txtBoxTxt = txtBox.Text;
-            List<String> txtBoxList = txtBoxTxt.Split(',').ToList();
+            string txtBoxText = txtBox.Text;
+            List<string> txtBoxList = txtBoxText.Split(',').ToList();
 
-
-            //contrast enumList with txtBox value => if it is there, remove everything, add again at the end
-            if (enumList.Contains(txtBoxTxt))
+            // Clear and reset text if it matches an enum value
+            if (enumList.Contains(txtBoxText))
             {
-                txtBox.Text = "";
-                this.structView.CurrentCell.Value = txtBoxTxt + ", ";
+                txtBox.Text = string.Empty;
+                structView.CurrentCell.Value = txtBoxText + ", ";
             }
-            if (column.Equals(valueColumn.Index) && (columnName == "AtkFlagsB"))
+
+            // Set up autocomplete for specific column and value type
+            if (columnIndex == valueColumn.Index && valueTypeName == "AtkFlagsB")
             {
-                AutoCompleteStringCollection kode = new AutoCompleteStringCollection();
-                kode.AddRange(enumList);
-                if (txtBox != null)
-                {
-
-                    txtBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-
-                    txtBox.AutoCompleteCustomSource = kode;
-
-                    txtBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
-                }
-
+                SetUpAutoComplete(txtBox, enumList);
             }
-            if (enumList.Contains(txtBoxTxt))
+
+            // Re-append original text if it matches an enum value
+            if (enumList.Contains(txtBoxText))
             {
-                txtBox.Text = txtBoxTxt + txtBox.Text;
+                txtBox.Text = txtBoxText + txtBox.Text;
             }
+        }
+
+        private void SetUpAutoComplete(TextBox textBox, string[] enumList)
+        {
+            AutoCompleteStringCollection autoCompleteCollection = new AutoCompleteStringCollection();
+            autoCompleteCollection.AddRange(enumList);
+
+            textBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            textBox.AutoCompleteCustomSource = autoCompleteCollection;
+            textBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
 
         private void RefreshAnimBox()
@@ -1695,19 +1687,15 @@ namespace StatusEditor
                     break;
             }
         }
-    } // class
 
-    static class StringExtensions
-    {
-        public static IEnumerable<String> SplitInParts(this String s, Int32 partLength)
+        private void unpackARCFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (s == null)
-                throw new ArgumentNullException(nameof(s));
-            if (partLength <= 0)
-                throw new ArgumentException("Part length has to be positive.", nameof(partLength));
-
-            for (var i = 0; i < s.Length; i += partLength)
-                yield return s.Substring(i, Math.Min(partLength, s.Length - i));
+            ArcToolHelper.ChooseFileAndUnpack();
         }
-    }
+
+        private void repackARCFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ArcToolHelper.OpenFolderAndRepack();
+        }
+    } // class
 } // ns
