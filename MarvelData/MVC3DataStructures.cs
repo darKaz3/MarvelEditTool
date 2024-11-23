@@ -9,68 +9,245 @@ using System.Xml.Linq;
 namespace MarvelData {
 
 
+    
+    [StructLayout(LayoutKind.Explicit)]
+        public struct ShotChunk
+        {
+            [FieldOffset(0)] public int unk64;
+            [FieldOffset(4)] public int unk68;
+            [FieldOffset(8)] public int unk6C;
+            [FieldOffset(12)] public int projectileSpawn;
+            [FieldOffset(16)] public ShtFlagsA ShtFlagsA;
+            [FieldOffset(20)] public ShtFlagsB ShtFlagsB;
+            [FieldOffset(24)] public ShtFlagsC ShtFlagsC;
+            [FieldOffset(28)] public int unk80;
+            [FieldOffset(32)] public float projectileDuration;
+            [FieldOffset(36)] public float unk88;
+            [FieldOffset(40)] public int unk8c;
+            [FieldOffset(44)] public float projectileSpeed;
+            [FieldOffset(48)] public float projectileAccel;
+            [FieldOffset(52)] public float unk98;
+            [FieldOffset(56)] public float beamDuration;
+            [FieldOffset(60)] public float projectileYSpeed;
+            [FieldOffset(64)] public float projectileYAccel;
+            [FieldOffset(68)] public float unkA8;
+            [FieldOffset(72)] public float unkAC;
+            [FieldOffset(76)] public float trackingStrength;
+            [FieldOffset(80)] public float trackingUnk;
+            [FieldOffset(84)] public float trackingRotation;
+            [FieldOffset(88)] public float trackingStartFrame;
+            [FieldOffset(92)] public int unkC0;
+            [FieldOffset(96)] public int unkC4;
+            [FieldOffset(100)] public float trackingEndFrame;
+            [FieldOffset(104)] public int unkCC;
+            [FieldOffset(108)] public float despawnProjectileFrame;
+            [FieldOffset(112)] public int returnBone;
+            [FieldOffset(116)] public int unkD8;
+            [FieldOffset(120)] public int unkDC;
+            [FieldOffset(124)] public int unkE0;
+            [FieldOffset(128)] public int unkE4;
+            [FieldOffset(132)] public float unkE8;
+            [FieldOffset(136)] public float SpawnVerticalPosition;
+            [FieldOffset(140)] public float SpawnHorizontalPosition;
+            [FieldOffset(144)] public int unkF4;
+            [FieldOffset(148)] public float unkF8;
+            [FieldOffset(152)] public int unkFC;
+            [FieldOffset(156)] public float unk100;
+            [FieldOffset(160)] public float SpawnPositionAngle;
+            [FieldOffset(164)] public float ProjectileAngle;
+            [FieldOffset(168)] public float unk10C;
+            [FieldOffset(172)] public float unk110;
+            [FieldOffset(176)] public float RandomSpawnAngle;
+            [FieldOffset(180)] public float RandomSpawnAngle2;
+            [FieldOffset(184)] public int unk11C;
+            [FieldOffset(188)] public int unk120;
+            [FieldOffset(192)] public int unk124;
+            [FieldOffset(196)] public float unk128;
+            [FieldOffset(200)] public float unk12C;
+            [FieldOffset(204)] public TrapTransition trapTransition; //bitwise flags
+            [FieldOffset(208)] public TrapTransition trapTransition2;
+            [FieldOffset(212)] public TrapTransition trapTransition3;
+            [FieldOffset(216)] public long projectile2Reference;
+            [FieldOffset(280)] public long projectile3Reference;
+            [FieldOffset(344)] public long projectile4Reference;
+            /*public int projectile2Reference1;
+            public int projectile2Reference2;
+            public int projectile2Reference3;
+            public int projectile2Reference4;
+            public int projectile2Reference5;
+            public int projectile2Reference6;
+            public int projectile2Reference7;
+            public int projectile2Reference8;
+            public int projectile2Reference9;
+            public int projectile2Reference10;
+            public int projectile2Reference11;
+            public int projectile2Reference12;
+            public int projectile2Reference13;
+            public int projectile2Reference14;
+            public int projectile2Reference15;
+            public int projectile2Reference16;
+            public int projectile3Reference1;
+                public int projectile3Reference2;
+                public int projectile3Reference3;
+                public int projectile3Reference4;
+                public int projectile3Reference5;
+                public int projectile3Reference6;
+                public int projectile3Reference7;
+                public int projectile3Reference8;
+                public int projectile3Reference9;
+                public int projectile3Reference10;
+                public int projectile3Reference11;
+                public int projectile3Reference12;
+                public int projectile3Reference13;
+                public int projectile3Reference14;
+                public int projectile3Reference15;
+                public int projectile3Reference16;
+                public int projectile4Reference1;
+                public int projectile4Reference2;
+                public int projectile4Reference3;
+                public int projectile4Reference4;
+                public int projectile4Reference5;
+                public int projectile4Reference6;
+                public int projectile4Reference7;
+                public int projectile4Reference8;
+                public int projectile4Reference9;
+                public int projectile4Reference10;
+                public int projectile4Reference11;
+                public int projectile4Reference12;
+                public int projectile4Reference13;
+                public int projectile4Reference14;
+                public int projectile4Reference15;
+                public int projectile4Reference16;
+            */
+            [FieldOffset(408)] public int unk1FC;
+            [FieldOffset(412)] public int unk200;
+            [FieldOffset(416)] public int unk204;
+            [FieldOffset(420)] public int unk208;
+            [FieldOffset(424)] public int unk20C;
+            [FieldOffset(428)] public int unk210;
+            [FieldOffset(432)] public long projectileAnmString;
+            /*public int projectileAnmString1;
+                public int projectileAnmString2;
+                public int projectileAnmString3;
+                public int projectileAnmString4;
+                public int projectileAnmString5;
+                public int projectileAnmString6;
+                public int projectileAnmString7;
+                public int projectileAnmString8;
+                public int projectileAnmString9;
+                public int projectileAnmString10;
+                public int projectileAnmString11;
+                public int projectileAnmString12;
+                public int projectileAnmString13;
+                public int projectileAnmString14;
+                public int projectileAnmString15;
+                public int projectileAnmString16;*/
+            [FieldOffset(496)] public int unk254;
+            [FieldOffset(500)] public int unk258;
+            [FieldOffset(504)] public int unk25C;
+            [FieldOffset(508)] public int unk260;
+            [FieldOffset(512)] public int unk264;
+            [FieldOffset(516)] public int unk268;
+            [FieldOffset(520)] public int unk26C;
+            [FieldOffset(524)] public int unk270;
+            [FieldOffset(528)] public int soundIDType;
+            [FieldOffset(532)] public int unk278;
+            [FieldOffset(536)] public int soundID;
+            [FieldOffset(540)] public int soundBankIndexUnk;
+            [FieldOffset(544)] public int unk284;
+            [FieldOffset(548)] public int unk288;
+            [FieldOffset(552)] public int soundPlay;
+            [FieldOffset(556)] public int unk290;
+            [FieldOffset(560)] public int unk294;
+            [FieldOffset(564)] public float unk298;
+            [FieldOffset(568)] public float unk29C;
+            [FieldOffset(572)] public float unk2A0;
+            [FieldOffset(576)] public int unk2A4;
+            [FieldOffset(580)] public float unk2A8;
+            [FieldOffset(584)] public float unk2AC;
+            [FieldOffset(588)] public float unk2B0;
+            [FieldOffset(592)] public int unk2B4;
+            [FieldOffset(596)] public int effectPlayed;
+            [FieldOffset(600)] public int unk2BC;
+            [FieldOffset(604)] public int unk2C0;
+            [FieldOffset(608)] public int unk2C4;
+            [FieldOffset(612)] public float RotationXSpeed;
+            [FieldOffset(616)] public float unk2CC;
+            [FieldOffset(620)] public float unk2D0;
+            [FieldOffset(624)] public float unk2D4;
+            [FieldOffset(628)] public int unk2D8;
+            [FieldOffset(632)] public int unk2DC;
+            [FieldOffset(636)] public int friendlyFire;
+            [FieldOffset(640)] public int unk2E4;
+            [FieldOffset(644)] public int unk2E8;
+            [FieldOffset(648)] public int unk2EC;
+            [FieldOffset(652)] public int canBeNullified;
+            [FieldOffset(656)] public int unk2F4;
+            [FieldOffset(660)] public int unk2F8;
+            [FieldOffset(664)] public int unk2FC;
+            }
 
-[StructLayout(LayoutKind.Explicit)]
+   /* [StructLayout(LayoutKind.Sequential)]
     public struct ShotChunk
     {
-        [FieldOffset(0)] public int unk64;
-        [FieldOffset(4)] public int unk68;
-        [FieldOffset(8)] public int unk6C;
-        [FieldOffset(12)] public int projectileSpawn;
-        [FieldOffset(16)] public ShtFlagsA ShtFlagsA;
-        [FieldOffset(20)] public ShtFlagsB ShtFlagsB;
-        [FieldOffset(24)] public ShtFlagsC ShtFlagsC;
-        [FieldOffset(28)] public int unk80;
-        [FieldOffset(32)] public float projectileDuration;
-        [FieldOffset(36)] public float unk88;
-        [FieldOffset(40)] public int unk8c;
-        [FieldOffset(44)] public float projectileSpeed;
-        [FieldOffset(48)] public float projectileAccel;
-        [FieldOffset(52)] public float unk98;
-        [FieldOffset(56)] public float beamDuration;
-        [FieldOffset(60)] public float projectileYSpeed;
-        [FieldOffset(64)] public float projectileYAccel;
-        [FieldOffset(68)] public float unkA8;
-        [FieldOffset(72)] public float unkAC;
-        [FieldOffset(76)] public float trackingStrength;
-        [FieldOffset(80)] public float trackingUnk;
-        [FieldOffset(84)] public float trackingRotation;
-        [FieldOffset(88)] public float trackingStartFrame;
-        [FieldOffset(92)] public int unkC0;
-        [FieldOffset(96)] public int unkC4;
-        [FieldOffset(100)] public float trackingEndFrame;
-        [FieldOffset(104)] public int unkCC;
-        [FieldOffset(108)] public float despawnProjectileFrame;
-        [FieldOffset(112)] public int returnBone;
-        [FieldOffset(116)] public int unkD8;
-        [FieldOffset(120)] public int unkDC;
-        [FieldOffset(124)] public int unkE0;
-        [FieldOffset(128)] public int unkE4;
-        [FieldOffset(132)] public float unkE8;
-        [FieldOffset(136)] public float SpawnVerticalPosition;
-        [FieldOffset(140)] public float SpawnHorizontalPosition;
-        [FieldOffset(144)] public int unkF4;
-        [FieldOffset(148)] public float unkF8;
-        [FieldOffset(152)] public int unkFC;
-        [FieldOffset(156)] public float unk100;
-        [FieldOffset(160)] public float SpawnPositionAngle;
-        [FieldOffset(164)] public float ProjectileAngle;
-        [FieldOffset(168)] public float unk10C;
-        [FieldOffset(172)] public float unk110;
-        [FieldOffset(176)] public float RandomSpawnAngle;
-        [FieldOffset(180)] public float RandomSpawnAngle2;
-        [FieldOffset(184)] public int unk11C;
-        [FieldOffset(188)] public int unk120;
-        [FieldOffset(192)] public int unk124;
-        [FieldOffset(196)] public float unk128;
-        [FieldOffset(200)] public float unk12C;
-        [FieldOffset(204)] public TrapTransition trapTransition; //bitwise flags
-        [FieldOffset(208)] public TrapTransition trapTransition2;
-        [FieldOffset(212)] public TrapTransition trapTransition3;
-        [FieldOffset(216)] public long projectile2Reference;
-        [FieldOffset(280)] public long projectile3Reference;
-        [FieldOffset(344)] public long projectile4Reference;
-        /*public int projectile2Reference1;
+                    public int unk64;
+     public int unk68;
+     public int unk6C;
+     public int projectileSpawn;
+     public ShtFlagsA ShtFlagsA;
+     public ShtFlagsB ShtFlagsB;
+     public ShtFlagsC ShtFlagsC;
+     public int unk80;
+     public float projectileDuration;
+     public float unk88;
+     public int unk8c;
+     public float projectileSpeed;
+     public float projectileAccel;
+     public float unk98;
+     public float beamDuration;
+     public float projectileYSpeed;
+     public float projectileYAccel;
+     public float unkA8;
+     public float unkAC;
+     public float trackingStrength;
+     public float trackingUnk;
+     public float trackingRotation;
+     public float trackingStartFrame;
+     public int unkC0;
+     public int unkC4;
+     public float trackingEndFrame;
+     public int unkCC;
+     public float despawnProjectileFrame;
+     public int returnBone;
+     public int unkD8;
+     public int unkDC;
+     public int unkE0;
+     public int unkE4;
+     public float unkE8;
+     public float SpawnVerticalPosition;
+     public float SpawnHorizontalPosition;
+     public int unkF4;
+     public float unkF8;
+     public int unkFC;
+     public float unk100;
+     public float SpawnPositionAngle;
+     public float ProjectileAngle;
+     public float unk10C;
+     public float unk110;
+     public float RandomSpawnAngle;
+     public float RandomSpawnAngle2;
+     public int unk11C;
+     public int unk120;
+     public int unk124;
+     public float unk128;
+     public float unk12C;
+     public TrapTransition trapTransition; //bitwise flags
+     public TrapTransition trapTransition2;
+     public TrapTransition trapTransition3;
+     //public long projectile2Reference;
+     //public long projectile3Reference;
+     //public long projectile4Reference;
+       public int projectile2Reference1;
         public int projectile2Reference2;
         public int projectile2Reference3;
         public int projectile2Reference4;
@@ -117,15 +294,15 @@ namespace MarvelData {
             public int projectile4Reference13;
             public int projectile4Reference14;
             public int projectile4Reference15;
-            public int projectile4Reference16;*/
-        [FieldOffset(408)] public int unk1FC;
-        [FieldOffset(412)] public int unk200;
-        [FieldOffset(416)] public int unk204;
-        [FieldOffset(420)] public int unk208;
-        [FieldOffset(424)] public int unk20C;
-        [FieldOffset(428)] public int unk210;
-        [FieldOffset(432)] public long projectileAnmString;
-        /*public int projectileAnmString1;
+            public int projectile4Reference16;
+         public int unk1FC;
+         public int unk200;
+         public int unk204;
+         public int unk208;
+         public int unk20C;
+         public int unk210;
+         //public long projectileAnmString;
+        public int projectileAnmString1;
             public int projectileAnmString2;
             public int projectileAnmString3;
             public int projectileAnmString4;
@@ -140,54 +317,53 @@ namespace MarvelData {
             public int projectileAnmString13;
             public int projectileAnmString14;
             public int projectileAnmString15;
-            public int projectileAnmString16;*/
-        [FieldOffset(496)] public int unk254;
-        [FieldOffset(500)] public int unk258;
-        [FieldOffset(504)] public int unk25C;
-        [FieldOffset(508)] public int unk260;
-        [FieldOffset(512)] public int unk264;
-        [FieldOffset(516)] public int unk268;
-        [FieldOffset(520)] public int unk26C;
-        [FieldOffset(524)] public int unk270;
-        [FieldOffset(528)] public int soundIDType;
-        [FieldOffset(532)] public int unk278;
-        [FieldOffset(536)] public int soundID;
-        [FieldOffset(540)] public int soundBankIndexUnk;
-        [FieldOffset(544)] public int unk284;
-        [FieldOffset(548)] public int unk288;
-        [FieldOffset(552)] public int soundPlay;
-        [FieldOffset(556)] public int unk290;
-        [FieldOffset(560)] public int unk294;
-        [FieldOffset(564)] public float unk298;
-        [FieldOffset(568)] public float unk29C;
-        [FieldOffset(572)] public float unk2A0;
-        [FieldOffset(576)] public int unk2A4;
-        [FieldOffset(580)] public float unk2A8;
-        [FieldOffset(584)] public float unk2AC;
-        [FieldOffset(588)] public float unk2B0;
-        [FieldOffset(592)] public int unk2B4;
-        [FieldOffset(596)] public int effectPlayed;
-        [FieldOffset(600)] public int unk2BC;
-        [FieldOffset(604)] public int unk2C0;
-        [FieldOffset(608)] public int unk2C4;
-        [FieldOffset(612)] public float RotationXSpeed;
-        [FieldOffset(616)] public float unk2CC;
-        [FieldOffset(620)] public float unk2D0;
-        [FieldOffset(624)] public float unk2D4;
-        [FieldOffset(628)] public int unk2D8;
-        [FieldOffset(632)] public int unk2DC;
-        [FieldOffset(636)] public int friendlyFire;
-        [FieldOffset(640)] public int unk2E4;
-        [FieldOffset(644)] public int unk2E8;
-        [FieldOffset(648)] public int unk2EC;
-        [FieldOffset(652)] public int canBeNullified;
-        [FieldOffset(656)] public int unk2F4;
-        [FieldOffset(660)] public int unk2F8;
-        [FieldOffset(664)] public int unk2FC;
-            //public int unk3C8;
-            //public int unk3CC;
+            public int projectileAnmString16;
+         public int unk254;
+         public int unk258;
+         public int unk25C;
+         public int unk260;
+         public int unk264;
+         public int unk268;
+         public int unk26C;
+         public int unk270;
+         public int soundIDType;
+         public int unk278;
+         public int soundID;
+         public int soundBankIndexUnk;
+         public int unk284;
+         public int unk288;
+         public int soundPlay;
+         public int unk290;
+         public int unk294;
+         public float unk298;
+         public float unk29C;
+         public float unk2A0;
+         public int unk2A4;
+         public float unk2A8;
+         public float unk2AC;
+         public float unk2B0;
+         public int unk2B4;
+         public int effectPlayed;
+         public int unk2BC;
+         public int unk2C0;
+         public int unk2C4;
+         public float RotationXSpeed;
+         public float unk2CC;
+         public float unk2D0;
+         public float unk2D4;
+         public int unk2D8;
+         public int unk2DC;
+         public int friendlyFire;
+         public int unk2E4;
+         public int unk2E8;
+         public int unk2EC;
+         public int canBeNullified;
+         public int unk2F4;
+         public int unk2F8;
+         public int unk2FC;
         }
-
+   */
+        
     [Flags]
         public enum ShtFlagsA : uint
         {
@@ -1181,18 +1357,338 @@ namespace MarvelData {
             public float HitHurtBoxRadius;
             public CLIProperties specialProperties;
         }
+        public struct ProfileSelfChunk
+        {
+        public CPIChar SelfID;
+        //public byte SelfID;
+        public byte unk04;
+        public byte unk08;
+        public byte unk0C;
+        //public ProfileFlagsA IdentityFlags;
+        //public ProfileFlagsB IdentityFlags2;
+        public ProfileFlags IdentityFlags;
+        //public byte unk18;
+        //public byte unk1C;
+        }
         public struct ProfileChunk //profile WIP here
         {
-        public int introID;
-        public int introProbability;
-        public int soundID;
-        public int unk0A;
-        public int CharacterA;
-        public int CharacterB;
-        public int CharacterC;
-        public int CharacterD;
+        public byte introID;
+        public byte introProbability;
+        public byte soundID;
+        public byte unk0C;
+        public CPIChar CharacterA;
+        public CPIChar CharacterB;
+        public CPIChar CharacterC;
+        public CPIChar CharacterD;
         }
-        public enum BoneReferenceId : uint
+    public enum CPIChar : byte
+    {
+        Generic = 00,
+        Ryu = 01,
+        ChunLi = 02,
+        Akuma = 03,
+        Chris = 04,
+        Wesker = 05,
+        ViewtifulJoe = 06,
+        Dante = 07,
+        Trish = 08,
+        FrankWest = 09,
+        Spencer = 10,
+        Arthur = 11,
+        Amaterasu = 12,
+        Zero = 13,
+        Tron = 14,
+        Morrigan = 15,
+        HsienKo = 16,
+        Felicia = 17,
+        CViper = 18,
+        Haggar = 19,
+        Jill = 20,
+        Strider = 21,
+        Vergil = 22,
+        PhoenixWright = 23,
+        Firebrand = 24,
+        Nemesis = 25,
+        SpiderMan = 26,
+        CapAmerica = 27,
+        Wolverine = 28,
+        Magneto = 29,
+        Hulk = 30,
+        SheHulk = 31,
+        Taskmaster = 32,
+        IronMan = 33,
+        Thor = 34,
+        DrDoom = 35,
+        Phoenix = 36,
+        Shuma = 37,
+        Modok = 38,
+        Dormammu = 39,
+        Deadpool = 40,
+        Storm = 41,
+        Skrull = 42,
+        Sentinel = 43,
+        X23 = 44,
+        Nova = 45,
+        Rocket = 46,
+        GhostRider = 47,
+        IronFist = 48,
+        DrStrange = 49,
+        Hawkeye = 50,
+        Galactus = 51,
+        flag52 = 52,
+        flag53 = 53,
+        flag54 = 54,
+        flag55 = 55,
+        flag56 = 56,
+        flag57 = 57,
+        flag58 = 58,
+        flag59 = 59,
+        flag60 = 60,
+        flag61 = 61,
+        flag62 = 62,
+        flag63 = 63,
+        flag64 = 64,
+        flag65 = 65,
+        flag66 = 66,
+        flag67 = 67,
+        flag68 = 68,
+        flag69 = 69,
+        Male = 70,
+        Female = 71,
+        Good = 72,
+        Evil = 73,
+        flag74 = 74,
+        flag75 = 75,
+        Hero = 76,
+        Villain = 77,
+        flag78 = 78,
+        flag79 = 79,
+        flag80 = 80,
+        Mutant = 81,
+        StreetFighter = 82,
+        DarkStalkers = 83,
+        XMen = 84,
+        Avenger = 85,
+        flag86 = 86,
+        flag87 = 87,
+        flag88 = 88,
+        flag89 = 89,
+        flag90 = 90,
+        flag91 = 91,
+        flag92 = 92,
+        flag93 = 93,
+        flag94 = 94,
+        flag95 = 95,
+        flag96 = 96,
+        flag97 = 97,
+        flag98 = 98,
+        flag99 = 99,
+        flag100 = 100,
+        flag101 = 101,
+        flag102 = 102,
+        flag103 = 103,
+        flag104 = 104,
+        flag105 = 105,
+        flag106 = 106,
+        flag107 = 107,
+        flag108 = 108,
+        flag109 = 109,
+        flag110 = 110,
+        flag111 = 111,
+        flag112 = 112,
+        flag113 = 113,
+        XmenLeader = 114,
+        AvengersLeader = 115,
+        flag116 = 116,
+        flag117 = 117,
+        flag118 = 118,
+        flag119 = 119,
+        flag120 = 120,
+        flag121 = 121,
+        flag122 = 122,
+        flag123 = 123,
+        flag124 = 124,
+        flag125 = 125,
+        flag126 = 126,
+        flag127 = 127,
+        flag128 = 128,
+        flag129 = 129,
+        flag130 = 130,
+        flag131 = 131,
+        flag132 = 132,
+        flag133 = 133,
+        flag134 = 134,
+        flag135 = 135,
+        flag136 = 136,
+        flag137 = 137,
+        flag138 = 138,
+        flag139 = 139,
+        flag140 = 140,
+        flag141 = 141,
+        flag142 = 142,
+        flag143 = 143,
+        flag144 = 144,
+        flag145 = 145,
+        flag146 = 146,
+        flag147 = 147,
+        flag148 = 148,
+        flag149 = 149,
+        flag150 = 150,
+        flag151 = 151,
+        flag152 = 152,
+        flag153 = 153,
+        flag154 = 154,
+        flag155 = 155,
+        flag156 = 156,
+        flag157 = 157,
+        flag158 = 158,
+        flag159 = 159,
+        flag160 = 160,
+        flag161 = 161,
+        flag162 = 162,
+        flag163 = 163,
+        flag164 = 164,
+        flag165 = 165,
+        flag166 = 166,
+        flag167 = 167,
+        flag168 = 168,
+        flag169 = 169,
+        flag170 = 170,
+        flag171 = 171,
+        flag172 = 172,
+        flag173 = 173,
+        flag174 = 174,
+        flag175 = 175,
+        flag176 = 176,
+        flag177 = 177,
+        flag178 = 178,
+        flag179 = 179,
+        flag180 = 180,
+        flag181 = 181,
+        flag182 = 182,
+        flag183 = 183,
+        flag184 = 184,
+        flag185 = 185,
+        flag186 = 186,
+        flag187 = 187,
+        flag188 = 188,
+        flag189 = 189,
+        flag190 = 190,
+        flag191 = 191,
+        flag192 = 192,
+        flag193 = 193,
+        flag194 = 194,
+        flag195 = 195,
+        flag196 = 196,
+        flag197 = 197,
+        flag198 = 198,
+        flag199 = 199,
+        flag200 = 200,
+        flag201 = 201,
+        flag202 = 202,
+        flag203 = 203,
+        flag204 = 204,
+        flag205 = 205,
+        flag206 = 206,
+        flag207 = 207,
+        flag208 = 208,
+        flag209 = 209,
+        flag210 = 210,
+        flag211 = 211,
+        flag212 = 212,
+        flag213 = 213,
+        SelfColor1 = 214,
+        SelfColor2 = 215,
+        SelfColor3 = 216,
+        SelfColor4 = 217,
+        SelfColor5 = 218,
+        SelfColor6 = 219,
+        SelfColorH = 190,
+        SelfColorAlt = 191,
+        flag222 = 192,
+        flag223 = 193,
+        flag224 = 194,
+        flag225 = 195,
+        flag226 = 196,
+        flag227 = 197,
+        flag228 = 198,
+        flag229 = 199,
+        flag230 = 230,
+        flag231 = 231,
+        flag232 = 232,
+        flag233 = 233,
+        flag234 = 234,
+        flag235 = 235,
+        flag236 = 236,
+        flag237 = 237,
+        flag238 = 238,
+        flag239 = 239,
+        flag240 = 240,
+        flag241 = 241,
+        flag242 = 242,
+        flag243 = 243,
+        flag244 = 244,
+        flag245 = 245,
+        flag246 = 246,
+        flag247 = 247,
+        flag248 = 248,
+        flag249 = 249,
+        flag250 = 250,
+        flag251 = 251,
+        flag252 = 252,
+        flag253 = 253,
+        flag254 = 254,
+        flag255 = 255
+    }
+
+    [Flags]
+    public enum ProfileFlags : uint
+    {
+        None = 0x00,
+        Male = 0x01,
+        Female = 0x02,
+        Good = 0x04,
+        Evil = 0x08,
+        CapcomGoodUnk = 0x10,
+        CapcomEvilUnk = 0x20,
+        MarvelGoodUnk = 0x40,
+        MarvelEvilUnk = 0x80,
+        NonMutant = 0x0100,
+        NonHumanUnk = 0x0200,
+        RobotUnk = 0x0400,
+        Mutant = 0x0800,
+        StreetFighter = 0x1000,
+        DarkStalkers = 0x2000,
+        XMen = 0x4000,
+        Avenger = 0x8000,
+    }
+    [Flags]
+    public enum ProfileFlagsA : byte
+    {
+        None = 0x00,
+        Male = 0x01,
+        Female = 0x02,
+        Good = 0x04,
+        Evil = 0x08,
+        CapcomGoodUnk = 0x10,
+        CapcomEvilUnk = 0x20,
+        MarvelGoodUnk = 0x40,
+        MarvelEvilUnk = 0x80
+    }
+    [Flags]
+    public enum ProfileFlagsB : byte
+    {
+        None = 0x00,
+        NonMutant = 0x01,
+        NonHumanUnk = 0x02,
+        RobotUnk = 0x04,
+        Mutant = 0x08,
+        StreetFighter = 0x10,
+        DarkStalkers = 0x20,
+        XMen = 0x40,
+        Avenger = 0x80,
+    }
+    public enum BoneReferenceId : uint
     {
         Detached = 4294967295,
         Origin1 = 01,
